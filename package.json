@@ -1,0 +1,29 @@
+{
+  "name": "drs-monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Adani Renewables DRS – pnpm monorepo",
+  "scripts": {
+    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "build": "pnpm --filter '@drs/contract' build && pnpm --parallel --filter './apps/*' build",
+    "lint": "pnpm --recursive lint",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@nestjs/core", "esbuild"],
+    "peerDependencyRules": {
+      "ignoreMissing": ["postcss"],
+      "allowedVersions": {
+        "react": "19"
+      }
+    }
+  }
+}

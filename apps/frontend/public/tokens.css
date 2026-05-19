@@ -1,0 +1,199 @@
+/* =====================================================================
+   Adani DRS — Colors & Type
+   Sources: Figma (Adani DRS Subh.fig) — Top color/font extraction
+   Brand: Adani Renewables; Product: As-Built Drawing / Project Lifecycle Platform
+   ===================================================================== */
+
+/* ---------- FONT IMPORTS ---------- */
+/* Plus Jakarta Sans — workhorse UI font (32k+ uses across weights) */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* Inter — used in dashboards / data densities, login title (700 46) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* DM Sans — small-volume secondary used in some labels */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+/* "Adani" font — proprietary brand display face used for "Project Lifecycle Platform"
+   wordmark and large hero numbers. Not on Google Fonts. SUBSTITUTE: Manrope (light & regular),
+   which has similar geometric proportions. Flagged in README — please supply Adani.ttf.       */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700&display=swap');
+
+:root {
+  /* ============================================================
+     COLORS — extracted by usage frequency from the Figma file
+     ============================================================ */
+
+  /* --- Brand / primary blues (the action color on every screen) --- */
+  --brand-blue-700:    rgb(0, 95, 166);    /* deep blue — text on white */
+  --brand-blue-600:    rgb(0, 109, 182);   /* primary blue — links, primary text */
+  --brand-blue-500:    rgb(11, 113, 187);  /* button blue (Add / Edit / View solid btns) */
+  --brand-blue-400:    rgb(177, 214, 250); /* tinted blue — chips, dividers */
+  --brand-blue-300:    rgb(198, 227, 255); /* input borders, card borders */
+  --brand-blue-200:    rgb(215, 237, 255); /* row highlights, secondary borders */
+  --brand-blue-100:    rgb(230, 244, 255); /* hover / selected row */
+  --brand-blue-050:    rgb(232, 243, 255); /* avatar bg, lightest blue */
+  --brand-blue-deep:   rgb(1, 46, 102);    /* hero overlay (45% alpha) */
+
+  /* --- Accent magenta (Adani wordmark + occasional callouts) --- */
+  --brand-magenta:     rgb(142, 39, 143);  /* "adani" logo & accent bars */
+  --brand-magenta-2:   rgb(142, 42, 141);
+
+  /* --- Adani secondary accents (renewables palette) --- */
+  --accent-orange:     rgb(246, 132, 69);  /* warning / pending tag */
+  --accent-orange-hot: rgb(240, 76, 35);   /* error / red-orange */
+  --accent-amber:      rgb(255, 185, 29);  /* status amber */
+  --accent-green:      rgb(0, 177, 107);   /* success / "Done" status */
+  --accent-green-mid:  rgb(48, 164, 108);  /* online dot */
+  --accent-lime:       rgb(106, 177, 38);  /* progress green */
+  --accent-lime-hi:    rgb(184, 221, 2);   /* highlight lime */
+
+  /* Primary CTA gradient — top→bottom green→blue */
+  --grad-primary:      linear-gradient(180deg, var(--accent-green) 0%, var(--brand-blue-600) 100%);
+
+  /* --- Neutrals --- */
+  --neutral-0:         rgb(255, 255, 255);
+  --neutral-50:        rgb(252, 252, 252);
+  --neutral-100:       rgb(250, 253, 255); /* off-white / card alt */
+  --neutral-150:       rgb(240, 240, 240); /* page bg */
+  --neutral-200:       rgb(220, 220, 220);
+  --neutral-250:       rgb(217, 217, 217); /* dividers */
+  --neutral-300:       rgb(216, 216, 216);
+  --neutral-350:       rgb(206, 206, 206); /* "Log in with" disabled label */
+  --neutral-400:       rgb(190, 190, 190);
+  --neutral-450:       rgb(176, 176, 176);
+  --neutral-500:       rgb(158, 158, 158); /* most-used stroke (270k+) */
+  --neutral-600:       rgb(141, 141, 141);
+  --neutral-650:       rgb(131, 131, 131);
+  --neutral-700:       rgb(100, 100, 100); /* body text on white */
+  --neutral-800:       rgb(75, 75, 75);
+  --neutral-900:       rgb(35, 31, 32);
+  --neutral-950:       rgb(32, 32, 32);    /* primary text */
+  --neutral-1000:      rgb(10, 10, 10);
+  --neutral-black:     rgb(0, 0, 0);
+
+  /* --- Semantic --- */
+  --fg-1:              var(--neutral-950);  /* primary text */
+  --fg-2:              var(--neutral-700);  /* secondary text / body */
+  --fg-3:              var(--neutral-500);  /* meta / placeholder */
+  --fg-link:           var(--brand-blue-600);
+  --fg-on-brand:       var(--neutral-0);
+
+  --bg-page:           var(--neutral-150);
+  --bg-surface:        var(--neutral-0);
+  --bg-surface-alt:    var(--neutral-100);
+  --bg-row-hover:      var(--brand-blue-100);
+  --bg-row-selected:   var(--brand-blue-200);
+
+  --border-subtle:     var(--neutral-150);
+  --border-default:    var(--brand-blue-300); /* most cards/inputs */
+  --border-strong:     var(--brand-blue-400);
+
+  --status-success:    var(--accent-green);
+  --status-warning:    var(--accent-orange);
+  --status-error:      var(--accent-orange-hot);
+  --status-info:       var(--brand-blue-600);
+  --status-pending:    var(--accent-amber);
+
+  /* --- Spacing scale (4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64) --- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  40px;
+  --space-8:  48px;
+  --space-9:  64px;
+
+  /* --- Radii — pragmatic / mostly square --- */
+  --radius-sm: 2px;   /* sections */
+  --radius-md: 4px;   /* default — buttons, inputs, cards */
+  --radius-lg: 8px;   /* login card, modals */
+  --radius-pill: 999px;
+
+  /* --- Elevation --- */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 2px 6px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 4px rgba(0,0,0,0.25); /* observed on login card */
+  --shadow-modal: 0 8px 24px rgba(0,0,0,0.18);
+
+  /* ============================================================
+     TYPE TOKENS
+     ============================================================ */
+  --font-ui:        'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-data:      'Inter', system-ui, sans-serif;            /* dashboards/numbers */
+  --font-display:   'Manrope', 'Adani', system-ui, sans-serif; /* "Adani" wordmark substitute */
+  --font-mono:      'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* sizes (most common) */
+  --fs-10: 10px;
+  --fs-12: 12px;
+  --fs-14: 14px;  /* default body */
+  --fs-16: 16px;  /* default header text */
+  --fs-18: 18px;  /* subhead */
+  --fs-20: 20px;  /* section title */
+  --fs-24: 24px;
+  --fs-30: 30px;
+  --fs-40: 40px;
+  --fs-46: 46px;  /* hero login */
+  --fs-60: 60px;  /* big stats */
+
+  --lh-tight: 1.0;
+  --lh-snug:  1.25;
+  --lh-base:  1.45;
+  --lh-loose: 1.6;
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES
+   ============================================================ */
+html { font-family: var(--font-ui); color: var(--fg-1); -webkit-font-smoothing: antialiased; }
+
+.h-display { font-family: var(--font-display); font-weight: 300; font-size: var(--fs-60); line-height: var(--lh-tight); letter-spacing: -0.01em; color: var(--fg-1); }
+.h-hero    { font-family: var(--font-data);    font-weight: 700; font-size: var(--fs-46); line-height: var(--lh-tight); color: var(--neutral-0); }
+.h1        { font-family: var(--font-ui);      font-weight: 700; font-size: var(--fs-30); line-height: var(--lh-snug);  color: var(--fg-1); }
+.h2        { font-family: var(--font-ui);      font-weight: 700; font-size: var(--fs-24); line-height: var(--lh-snug);  color: var(--fg-1); }
+.h3        { font-family: var(--font-ui);      font-weight: 600; font-size: var(--fs-20); line-height: var(--lh-snug);  color: var(--fg-1); }
+.h4        { font-family: var(--font-ui);      font-weight: 600; font-size: var(--fs-16); line-height: 24px;            color: var(--fg-1); }
+.body      { font-family: var(--font-ui);      font-weight: 500; font-size: var(--fs-14); line-height: 20px;            color: var(--fg-2); }
+.body-md   { font-family: var(--font-ui);      font-weight: 500; font-size: var(--fs-16); line-height: 24px;            color: var(--fg-2); }
+.label     { font-family: var(--font-ui);      font-weight: 500; font-size: var(--fs-14); line-height: 20px;            color: var(--fg-1); }
+.caption   { font-family: var(--font-ui);      font-weight: 500; font-size: var(--fs-12); line-height: 18px;            color: var(--fg-3); }
+.micro     { font-family: var(--font-data);    font-weight: 400; font-size: var(--fs-10); line-height: 1;               color: var(--fg-2); }
+.data      { font-family: var(--font-data);    font-weight: 400; font-size: var(--fs-12); line-height: 1;               color: var(--fg-1); }
+.wordmark  { font-family: var(--font-display); font-weight: 400; font-size: var(--fs-18); letter-spacing: 0.01em; }
+
+/* ============================================================
+   PRIMITIVE COMPONENTS
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; height: 32px;
+  font-family: var(--font-ui); font-weight: 700; font-size: var(--fs-14); line-height: 20px;
+  border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer;
+  transition: filter .15s ease, transform .05s ease, background-color .15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary    { color: var(--neutral-0); background: var(--grad-primary); }
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-secondary  { color: var(--brand-blue-600); background: var(--neutral-0); border-color: var(--brand-blue-200); }
+.btn-secondary:hover { background: var(--brand-blue-100); }
+.btn-solid      { color: var(--neutral-0); background: var(--brand-blue-500); height: 40px; padding: 0 16px 0 8px; }
+.btn-solid:hover { background: var(--brand-blue-600); }
+
+.input {
+  height: 36px; padding: 5px 10px;
+  border: 1px solid var(--brand-blue-300); border-radius: var(--radius-md);
+  font-family: var(--font-ui); font-size: var(--fs-14); line-height: 20px; color: var(--fg-1);
+  background: var(--neutral-0);
+}
+.input:focus { outline: 2px solid var(--brand-blue-300); outline-offset: 0; border-color: var(--brand-blue-500); }
+
+.card { background: var(--neutral-0); border: 1px solid var(--border-default); border-radius: 0; }
+.card-elevated { box-shadow: var(--shadow-lg); border-radius: var(--radius-lg); }
+
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; height: 22px;
+        font-size: var(--fs-12); font-weight: 600; border-radius: var(--radius-pill); }
+.chip-info    { background: var(--brand-blue-200); color: var(--brand-blue-700); }
+.chip-success { background: rgba(0,177,107,0.14); color: var(--accent-green); }
+.chip-warn    { background: rgba(255,185,29,0.18); color: rgb(140,90,0); }
+.chip-pending { background: rgba(246,132,69,0.16); color: var(--accent-orange-hot); }
