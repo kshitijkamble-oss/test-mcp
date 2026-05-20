@@ -112,7 +112,7 @@ const NAV_GROUPS = [
   { group: 'Workspace', items: [
     { icon: <LayoutDashboard size={16} />, label: 'Overview',         count: null },
     { icon: <FolderKanban size={16} />,   label: 'Projects',         count: 16, active: true },
-    { icon: <FileStack size={16} />,      label: 'Drawings (CDE)',   count: '25.8K' },
+    { icon: <FileStack size={16} />,      label: 'Drawings (CDE)',   count: '25.8K', href: '/drawings' },
     { icon: <ClipboardList size={16} />,  label: 'Service Orders',   count: 38 },
   ]},
   { group: 'Workflows', items: [
@@ -137,9 +137,12 @@ function Sidebar({ onNav }: { onNav: (msg: string) => void }) {
             {grp.items.map((it) => (
               <a
                 key={it.label}
-                href="#"
+                href={(it as { href?: string }).href ?? '#'}
                 className={it.active ? 'active' : ''}
-                onClick={(e) => { e.preventDefault(); if (!it.active) onNav(`${it.label} · coming soon`); }}
+                onClick={(e) => {
+                  if (it.active) { e.preventDefault(); return; }
+                  if (!(it as { href?: string }).href) { e.preventDefault(); onNav(`${it.label} · coming soon`); }
+                }}
               >
                 {it.icon}
                 <span>{it.label}</span>
