@@ -13,6 +13,7 @@
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   },
+  "packageManager": "pnpm@10.28.0",
   "engines": {
     "node": ">=20",
     "pnpm": ">=10"
