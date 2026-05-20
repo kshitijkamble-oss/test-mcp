@@ -312,7 +312,8 @@ function RealApsViewer({ drawing }: { drawing: DrawingRecord | null }) {
       try {
         await loadSdk();
 
-        const tokenRes = await fetch('/api/aps/token');
+        const apiBase = import.meta.env.VITE_API_URL ?? '';
+        const tokenRes = await fetch(`${apiBase}/aps/token`);
         const tokenData = await tokenRes.json() as { access_token?: string; mock?: true };
 
         if (tokenData.mock || !tokenData.access_token) {

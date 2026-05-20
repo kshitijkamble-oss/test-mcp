@@ -39,7 +39,8 @@ export function LoginForm() {
     onSubmit: async ({ value }) => {
       setIsLoading(true);
       try {
-        const res = await fetch('/api/auth/login', {
+        const apiBase = import.meta.env.VITE_API_URL ?? '';
+        const res = await fetch(`${apiBase}/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: value.email, password: value.password }),
